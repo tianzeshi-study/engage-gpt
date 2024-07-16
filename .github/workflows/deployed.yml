@@ -5,6 +5,10 @@ on:
     branches:
       - main  # 触发工作流的分支
 
+permissions:
+  contents: write
+  id-token: write
+  
 jobs:
   build:
     runs-on: ubuntu-latest
