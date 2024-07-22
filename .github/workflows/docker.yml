@@ -2,6 +2,8 @@ name: Publish Docker image
 
 on:
   workflow_dispatch:
+  branches:
+    - main
   release:
     types: [published]
 
@@ -25,7 +27,9 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: yidadaa/chatgpt-next-web
+          # images: yidadaa/chatgpt-next-web
+          images: articodetz/engage-gpt
+          
           tags: |
             type=raw,value=latest
             type=ref,event=tag
