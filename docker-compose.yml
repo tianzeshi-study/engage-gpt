@@ -1,21 +1,29 @@
-version: "2.0"
+version: '3.8'
+
 services:
-  chatgpt-next-web:
-    profiles: [ "no-proxy" ]
-    container_name: chatgpt-next-web
-    # image: yidadaa/chatgpt-next-web
-    image: articodetz/engage-gpt:v0
+  engage-gpt:
+    # image: articodetz/engage-gpt:v0
+    image: articodetz/engage-gpt:v2
+    container_name: engage-gpt
+    # command: ['docker-entrypoint.sh']
+    # command: ["tail", "-f", "/app/server.js"]
+    command: ['node', 'server.js'] 
+    environment:
+      - DISABLE_GPT4=1
+      - ENABLE_BALANCE_QUERY=1
+      - AZURE_URL=$AZURE_URL
+      - AZURE_API_KEY=$AZURE_API_KEY
+      - AZURE_API_VERSION=$AZURE_API_VERSION
+      - DEFAULT_MODEL=$DEFAULT_MODEL
+      - CUSTOM_MODELS=$CUSTOM_MODELS
+      # - GOOGLE_API_KEY=$GOOGLE_API_KEY
+      - CODE=$CODE
     ports:
       - 3000:3000
-    # environment:
-      # - OPENAI_API_KEY=$OPENAI_API_KEY
-      # - GOOGLE_API_KEY=$GOOGLE_API_KEY
-      # - CODE=$CODE
-      # - BASE_URL=$BASE_URL
-      # - OPENAI_ORG_ID=$OPENAI_ORG_ID
-      # - HIDE_USER_API_KEY=$HIDE_USER_API_KEY
-      # - DISABLE_GPT4=$DISABLE_GPT4
-      # - ENABLE_BALANCE_QUERY=$ENABLE_BALANCE_QUERY
-      # - DISABLE_FAST_LINK=$DISABLE_FAST_LINK
-      # - OPENAI_SB=$OPENAI_SB
 
+    networks:
+      - gpt-network
+
+networks:
+  gpt-network:
+    driver: bridge
