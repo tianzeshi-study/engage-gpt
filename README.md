@@ -17,3 +17,7 @@ yarn install
 yarn build 
 node  server.js
 ```
+- dockerfile 
+```
+docker build . -t  <tag name>
+```
