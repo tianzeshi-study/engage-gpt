@@ -14,8 +14,7 @@ docker run -it -p 3000:3000 articodetz/engage-gpt:latest
 git clone  https://github.com/tianzeshi-study/engage-gpt.git
 cd  engage-gpt
 yarn install 
-yarn build 
-node  server.js
+yarn  start 
 ```
 - dockerfile 
 ```
