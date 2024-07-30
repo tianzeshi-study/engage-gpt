@@ -2,7 +2,7 @@
 
 
 ## engage program --a helpful  AI  assistant  for accessibility q&a
-
+- [example](https://engage-gpt.pages.dev/#/chat)
 #### how to use 
 - docker 
 ```
