@@ -8,13 +8,13 @@ WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN yarn config set registry 'https://registry.npmmirror.com/'
+# RUN yarn config set registry 'https://registry.npmmirror.com/'
 # RUN yarn config set registry 'https://npmmirror.com'
 RUN yarn add   sharp && yarn install
 
 FROM base AS builder
 
-# RUN apk update && apk add --no-cache git
+RUN apk update && apk add --no-cache git
 
 ENV OPENAI_API_KEY=""
 ENV GOOGLE_API_KEY=""
