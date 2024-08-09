@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Accessibility Q&A",
   description: "Your personal ChatGPT Chat Bot.",
   appleWebApp: {
-    title: "NextChat",
+    title: "Accessibility Q&A",
     statusBarStyle: "default",
   },
 };
